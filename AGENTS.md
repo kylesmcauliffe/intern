@@ -111,6 +111,16 @@ Requirements (README): Node.js **18 or 20** (LTS), **npm**.
 - Prefer **minimal diffs** and follow existing patterns (`getCollection` + `render`, passing `frontmatter={entry.data}` into layouts).
 - **`image()` fields:** keep `url`/`alt` shapes stable; broken `image()` paths will fail the content pipeline.
 
+## Cursor Cloud specific instructions
+
+Static Astro SSG theme — one frontend deliverable, no backend/database/env vars/external services. The update script runs `npm install` on startup, so dependencies are already installed.
+
+- **Node:** `.nvmrc` pins **22** (works with Astro 6 here); README's "18 or 20" is stale — prefer 22.
+- **Run/build/preview:** standard scripts in `package.json` (`npm run dev`, `npm run build`, `npm run preview`). Dev/preview serve at **http://localhost:4321**.
+- **Lint/tests:** none configured (no `test` script, no ESLint config). `npm run build` is the primary correctness check — it validates content collections against the Zod schemas in `src/content.config.ts`.
+- **Do NOT run `astro check`:** `@astrojs/check` is not a dependency, so the command triggers an **interactive install prompt** that hangs a non-TTY shell.
+- **Verifying content changes:** adding a `.md`/`.mdx` file under `src/content/posts/` is hot-reloaded by the dev server and rendered at `/blog/posts/<filename>` (dynamic `[...slug]` route keyed on `entry.id`).
+
 ## Lexington docs & support (from README)
 
 - Theme specs: https://lexingtonthemes.com/templates/outkast  
