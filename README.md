@@ -1,55 +1,28 @@
-# Intern to Impact
+# Outkast
 
-Career blog and resources by Ariana — from intern to impact. Built with Astro.
+![Theme preview](https://lexingtonthemes.com/OpenGraph/outkast/twitter.png)
 
-## Live site
 
-- **Production:** https://intern-to-impact.netlify.app
-- **Staging (Ari):** https://develop--intern-to-impact.netlify.app
-- **Experiments:** https://lab--intern-to-impact.netlify.app
+## Links
+- **Theme specs:** https://lexingtonthemes.com/templates/outkast  
+- **Documentation:** https://lexingtonthemes.com/documentation  
+- **Changelog:** https://lexingtonthemes.com/changelog/outkast  
+- **Support:** https://lexingtonthemes.com/legal/support/  
+- **Get the bundle:** https://lexingtonthemes.com  
 
 ## Requirements
-
-- Node.js 22 (`nvm use` reads `.nvmrc`)
+- Node.js 18 or 20 (LTS recommended)
 - npm
 
 ## Commands
 
-| Command | Action |
-|---------|--------|
-| `npm install` | Install dependencies |
-| `npm run dev` | Local dev server (http://localhost:4321) |
-| `npm run build` | Production build → `dist/` |
-| `npm run preview` | Preview production build |
+All commands are run from the root of the project, from a terminal:
 
-## Branches
-
-| Branch | Role |
-|--------|------|
-| `original` | Frozen Lexington archive — never delete |
-| `lab` | **Edit here** — experiments and daily work |
-| `develop` | Staging — merge from `lab`, Ari reviews |
-| `main` | Production — merge from `develop` only |
-
-**Flow:** `lab` → `develop` → `main`. See `CONTRIBUTING.md`.
-
-## Netlify (Artometrics)
-
-- Production branch: `main`
-- Branch deploys: `lab`, `develop` (or All)
-- Build: `netlify.toml` (`npm run build`, publish `dist`, Node 22)
-
-## Project layout
-
-| Path | Purpose |
-|------|---------|
-| `src/content/posts/` | Published blog posts |
-| `src/pages/` | Routes |
-| `docs/BRAND.md` | Colors, fonts, voice |
-| `public/` | Favicon and static assets |
-
-Drafts outside repo: `/Users/ksm/Desktop/ari/content-drafts/`
-
-## Theme
-
-Outkast (Lexington Themes) customized for Intern to Impact. See `docs/BRAND.md`.
+| Command                | Action                                           |
+| :--------------------- | :----------------------------------------------- |
+| `npm install`          | Install dependencies                             |
+| `npm run dev`          | Start local dev server                           |
+| `npm run build`        | Build production site to `./dist/`               |
+| `npm run preview`     | Preview the production build locally             |
+| `npm run astro ...`    | Run Astro CLI commands                           |
+| `npm run astro --help` | Get help using the Astro CLI                     |

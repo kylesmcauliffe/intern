@@ -1,45 +1,29 @@
 ---
-// Fundations
 import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 ---
 
-<section class="bg-accent-500">
+<section class="bg-base-50">
   <Wrapper variant="standard" class="py-24">
-    <div class="flex flex-col gap-8 md:gap-12 md:items-center text-center">
-      <div>
-        <div class="relative max-w-xs mx-auto">
-          <div class="absolute inset-0 flex items-center" aria-hidden="true">
-            <div class="w-full border-t border-accent-300"></div>
-          </div>
-          <div class="relative flex justify-center">
-            <span class="bg-accent-500 px-2 text-sm text-white font-medium"
-              >Join us</span
-            >
-          </div>
-        </div>
-        <Text
-          tag="h1"
-          variant="displayXL"
-          class="tracking-tighter text-white text-balance mt-12"
-        >
-          Want to jam with us?
-        </Text>
-        <Text
-          tag="p"
-          variant="textXL"
-          class="text-accent-100 mt-8 text-balance"
-        >
-          We’re a multi-disciplinary team building the future of the web. If
-          that sounds exciting to you, check out our open positions.
-        </Text>
-      </div>
-      <a
-        href="#_"
-        class="flex size-32 text-sm md:text-base lg:text-2xl xl:text-3xl text-center md:size-32 shrink-0 lg:size-52 2xl:size-64 text-accent-500 hover:bg-accent-900 hover:text-white duration-300 items-center justify-center rounded-full bg-white"
+    <div
+      class="rounded-[2rem] bg-gradient-to-r from-accent-500 to-accent-700 px-8 py-16 text-center text-white lg:px-16"
+    >
+      <p class="text-sm font-medium text-accent-100">Join us</p>
+      <Text
+        tag="h1"
+        variant="displayXL"
+        class="tracking-tight text-white text-balance mt-4"
       >
-        Careers
-      </a>
+        Want to jam with us?
+      </Text>
+      <Text tag="p" variant="textLG" class="text-accent-100 mt-6 text-balance max-w-xl mx-auto">
+        We are a multi-disciplinary team building intern-ready systems. If that
+        sounds like you, apply for the next cohort.
+      </Text>
+      <div class="mt-8 flex justify-center">
+        <Button isLink size="lg" variant="muted" href="/contact">Apply</Button>
+      </div>
     </div>
   </Wrapper>
 </section>

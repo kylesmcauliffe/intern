@@ -3,46 +3,99 @@
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-const tags = [
-  "networking",
-  "internships",
-  "LinkedIn",
-  "first-gen",
-  "Bay Area",
-  "career reps",
-];
-const repeated = Array(15).fill(tags.join(" · ")).join(" · ");
 ---
 
-<section class="bg-white overflow-hidden border-b border-base-200">
+<section class="bg-base-50 overflow-hidden relative">
   <Wrapper variant="standardWide" class="px-8 py-16 lg:py-24">
-    <div class="grid items-end gap-6 lg:grid-cols-3 max-w-5xl mx-auto">
-      <div class="lg:col-span-2">
-        <Text
-          tag="h1"
-          variant="displayXL"
-          class="tracking-tight text-base-900 text-balance"
-        >
-          From intern to impact
-        </Text>
-      </div>
-      <Text tag="p" variant="textBase" class="font-medium text-base-600">
-        Career guides for young professionals — especially if you're figuring it
-        out without a family playbook.
+    <div class="mx-auto max-w-3xl text-center">
+      <span
+        class="inline-flex rounded-full bg-base-200 px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-base-600"
+      >
+        How it works
+      </span>
+      <Text
+        tag="h1"
+        variant="displayXL"
+        class="tracking-tight text-base-900 text-balance mt-6"
+      >
+        From intern to <em class="italic font-normal">impact</em>
       </Text>
+      <Text
+        tag="p"
+        variant="textBase"
+        class="mt-6 text-base-600 max-w-xl mx-auto"
+      >
+        Demure, deliberate career strategy for women who want to show up
+        polished — without performing.
+      </Text>
+      <div class="mt-8 flex flex-wrap items-center justify-center gap-3">
+        <Button isLink size="base" variant="default" href="/contact">
+          Apply
+        </Button>
+        <Button isLink size="base" variant="muted" href="/services">
+          See the program
+        </Button>
+      </div>
     </div>
-    <div class="flex flex-wrap gap-3 mt-10 max-w-5xl mx-auto">
-      <Button isLink size="base" variant="default" href="#start-here">
-        Start here
-      </Button>
-      <Button isLink size="base" variant="muted" href="/blog">
-        Read the blog
-      </Button>
-    </div>
+
     <div
-      class="bg-base-100 text-base-500 text-sm font-medium rounded-2xl mt-12 py-3 px-4 overflow-x-hidden"
+      class="relative mt-16 rounded-[2rem] bg-base-200 bg-grain p-4 sm:p-8 lg:p-12"
     >
-      <div class="animate-marquee flex whitespace-nowrap">{repeated}</div>
+      <div
+        class="grid overflow-hidden rounded-3xl bg-white shadow-sm lg:grid-cols-2"
+      >
+        <div class="border-b border-base-100 p-8 lg:border-b-0 lg:border-r">
+          <p
+            class="text-[11px] font-semibold uppercase tracking-widest text-base-500"
+          >
+            Cohort overview
+          </p>
+          <h2 class="mt-4 font-display text-3xl tracking-tight text-base-900">
+            Your intern loop
+          </h2>
+          <ul class="mt-6 space-y-3 text-sm text-base-700">
+            <li class="flex items-center gap-2">
+              <span class="size-1.5 rounded-full bg-accent-500"></span>
+              Brand system and weekly critique
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="size-1.5 rounded-full bg-accent-500"></span>
+              Live client-style briefs
+            </li>
+            <li class="flex items-center gap-2">
+              <span class="size-1.5 rounded-full bg-accent-500"></span>
+              Portfolio-ready case studies
+            </li>
+          </ul>
+          <div class="mt-8">
+            <Button isLink size="sm" variant="accent" href="/contact">
+              Download the brief
+            </Button>
+          </div>
+        </div>
+        <div class="bg-base-50 p-8">
+          <p
+            class="text-[11px] font-semibold uppercase tracking-widest text-base-500"
+          >
+            This week
+          </p>
+          <p class="mt-4 text-sm leading-relaxed text-base-700">
+            You ship a landing restyle, a Notion intern hub, and matching Figma
+            and Canva kits — the same tokens, in every tool you will actually
+            use.
+          </p>
+          <div class="mt-6 flex flex-wrap gap-2">
+            <span
+              class="rounded-full bg-base-200 px-3 py-1 text-xs text-base-600"
+              >Days 1–14</span
+            >
+            <span
+              class="rounded-full bg-base-200 px-3 py-1 text-xs text-base-600"
+              >Case-ready</span
+            >
+          </div>
+        </div>
+      </div>
     </div>
   </Wrapper>
 </section>

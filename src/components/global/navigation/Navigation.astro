@@ -10,87 +10,128 @@ import Search from "@/components/global/Search.astro";
 import Menu from "@/components/fundations/icons/Menu.astro";
 import Close from "@/components/fundations/icons/Close.astro";
 const navLinks = [
+  { label: "How it works", href: "/services" },
+  { label: "Work", href: "/work" },
+  { label: "Team", href: "/team" },
+  { label: "Pricing", href: "/pricing-simple" },
   { label: "Blog", href: "/blog" },
-  { label: "Guides", href: "/blog/tags/guide" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
 ];
 ---
 
-<nav class="bg-white border-b border-base-200 overflow-hidden relative">
-  <Wrapper variant="standard" class="py-4">
-    <div class="flex items-center gap-4">
-      <a href="/" class="text-lg text-base-900">
-        <BrandLogo showIcon class="text-base-900" />
-      </a>
-      <div class="ml-auto flex items-center gap-2">
-        <Search />
-        <div class="relative" data-mobile-nav-root>
-          <Button
-            iconOnly
-            size="sm"
-            variant="muted"
-            type="button"
-            aria-expanded="false"
-            aria-controls="mobile-nav-drawer"
-            data-mobile-nav-toggle
-          >
-            <Menu slot="icon" size="sm" />
-          </Button>
-
-          <div
-            data-mobile-nav-panel
-            aria-hidden="true"
-            class="fixed inset-0 z-40 pointer-events-none duration-300"
-          >
-            <div
-              id="mobile-nav-drawer"
-              data-mobile-nav-drawer
-              class="ml-auto flex h-full w-[min(22rem,90vw)] flex-col gap-8 translate-x-full bg-white px-6 py-8 shadow-2xl transition-transform duration-300"
+<div class="sticky top-0 z-50">
+  <div
+    class="flex items-center justify-center gap-3 bg-gradient-to-r from-accent-400 via-accent-300 to-pink-200 px-4 py-2 text-xs font-medium text-white sm:text-sm"
+  >
+    <span>Intern onboarding is open — apply for the next cohort.</span>
+    <a
+      href="/contact"
+      class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs hover:bg-white/30"
+    >
+      See how it works
+    </a>
+  </div>
+  <nav class="bg-base-50/90 backdrop-blur-md border-b border-base-200">
+    <Wrapper variant="standard" class="py-3">
+      <div class="relative flex items-center gap-4">
+        <a href="/" class="text-base z-10">
+          <BrandLogo />
+        </a>
+        <div
+          class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-6 text-sm font-medium text-base-700"
+        >
+          {
+            navLinks.map((link) => (
+              <a
+                href={link.href}
+                class="hover:text-base-900 transition-colors duration-200"
+              >
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+        <div class="ml-auto flex items-center gap-2">
+          <div class="hidden sm:block">
+            <Search />
+          </div>
+          <div class="hidden md:flex items-center gap-2">
+            <Button isLink size="sm" variant="default" href="/contact">
+              Apply
+            </Button>
+            <Button isLink size="sm" variant="muted" href="/contact">
+              Contact
+            </Button>
+          </div>
+          <div class="relative lg:hidden" data-mobile-nav-root>
+            <Button
+              iconOnly
+              size="sm"
+              variant="muted"
+              type="button"
+              aria-expanded="false"
+              aria-controls="mobile-nav-drawer"
+              data-mobile-nav-toggle
             >
-              <div class="flex items-center justify-between">
-                <a href="/">
-                  <span class="sr-only">Home</span>
-                  <BrandLogo showIcon class="text-base-900" />
-                </a>
+              <Menu slot="icon" size="sm" />
+            </Button>
 
-                <Button
-                  iconOnly
-                  size="xs"
-                  variant="muted"
-                  type="button"
-                  data-mobile-nav-close
-                >
-                  <Close slot="icon" size="xs" />
-                </Button>
-              </div>
+            <div
+              data-mobile-nav-panel
+              aria-hidden="true"
+              class="fixed inset-0 z-40 pointer-events-none duration-300"
+            >
+              <div
+                id="mobile-nav-drawer"
+                data-mobile-nav-drawer
+                class="ml-auto flex h-full w-[min(22rem,90vw)] flex-col gap-8 translate-x-full bg-base-50 px-6 py-8 shadow-2xl transition-transform duration-300"
+              >
+                <div class="flex items-center justify-between">
+                  <a href="/">
+                    <span class="sr-only">Home</span>
+                    <BrandLogo />
+                  </a>
 
-              <div class="flex flex-col gap-2">
-                {
-                  navLinks.map((link) => (
-                    <a
-                      data-mobile-nav-link
-                      href={link.href}
-                      class="text-base font-medium text-base-900 transition-colors duration-200 hover:text-base-600"
-                    >
-                      {link.label}
-                    </a>
-                  ))
-                }
-              </div>
+                  <Button
+                    iconOnly
+                    size="xs"
+                    variant="muted"
+                    type="button"
+                    data-mobile-nav-close
+                  >
+                    <Close slot="icon" size="xs" />
+                  </Button>
+                </div>
 
-              <div class="mt-auto flex flex-col gap-3">
-                <Button isLink size="base" variant="default" href="/contact">
-                  Work with me
-                </Button>
+                <div class="flex flex-col gap-2">
+                  {
+                    navLinks.map((link) => (
+                      <a
+                        data-mobile-nav-link
+                        href={link.href}
+                        class="text-base font-medium text-base-800 transition-colors duration-200 hover:text-accent-600"
+                      >
+                        {link.label}
+                      </a>
+                    ))
+                  }
+                </div>
+
+                <div class="mt-auto flex flex-col gap-3">
+                  <Button isLink size="base" variant="default" href="/contact">
+                    Apply
+                  </Button>
+                  <Button isLink size="base" variant="muted" href="/contact">
+                    Contact
+                  </Button>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </Wrapper>
-</nav>
+    </Wrapper>
+  </nav>
+</div>
 <script is:inline>
   const navRoot =
     document.currentScript?.closest("[data-mobile-nav-root]") ||

@@ -4,33 +4,75 @@ import BrandLogo from "@/components/assets/BrandLogo.astro";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-const links = [
-  { name: "Blog", link: "/blog" },
-  { name: "Guides", link: "/blog/tags/guide" },
-  { name: "About", link: "/about" },
-  { name: "Contact", link: "/contact" },
+const columns = [
+  {
+    title: "Program",
+    links: [
+      { name: "How it works", href: "/services" },
+      { name: "Work", href: "/work" },
+      { name: "Pricing", href: "/pricing-simple" },
+    ],
+  },
+  {
+    title: "Studio",
+    links: [
+      { name: "Team", href: "/team" },
+      { name: "Blog", href: "/blog" },
+      { name: "About", href: "/legal/about" },
+    ],
+  },
+  {
+    title: "Contact",
+    links: [
+      { name: "Apply", href: "/contact" },
+      { name: "Contact", href: "/contact" },
+      { name: "Privacy", href: "/legal/privacy" },
+    ],
+  },
 ];
 ---
 
-<section class="bg-white overflow-hidden border-t border-base-200">
-  <Wrapper variant="standard" class="py-16">
-    <BrandLogo showIcon class="text-base-900 text-lg" />
-    <Text tag="p" variant="textBase" class="mt-4 text-base-600 max-w-md">
-      Career guides for young professionals — from intern to impact.
-    </Text>
-    <ul role="list" class="flex flex-wrap gap-x-6 gap-y-2 mt-10">
-      {
-        links.map((item) => (
-          <li>
-            <a
-              class="text-base-600 hover:text-base-900 duration-200"
-              href={item.link}
-            >
-              {item.name}
-            </a>
-          </li>
-        ))
-      }
-    </ul>
-  </Wrapper>
-</section>
+<footer class="bg-base-50 overflow-hidden relative px-4 pb-8 pt-8 lg:px-8">
+  <div
+    class="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-pink-200 via-yellow-100 to-accent-100 px-8 py-16 lg:px-16"
+  >
+    <BrandLogo
+      class="pointer-events-none absolute -right-8 bottom-0 text-base-900/10 text-6xl lg:text-8xl"
+    />
+    <Wrapper variant="standard" class="relative">
+      <div class="grid gap-12 lg:grid-cols-4">
+        <div>
+          <BrandLogo />
+          <Text tag="p" variant="textSM" class="mt-4 max-w-xs text-base-700">
+            Demure, deliberate career strategy for women who want to show up
+            polished — without performing.
+          </Text>
+        </div>
+        {
+          columns.map((column) => (
+            <div>
+              <p class="text-xs font-semibold uppercase tracking-widest text-base-600">
+                {column.title}
+              </p>
+              <ul class="mt-4 flex flex-col gap-2">
+                {column.links.map((item) => (
+                  <li>
+                    <a
+                      class="text-base-800 hover:text-base-950 duration-200"
+                      href={item.href}
+                    >
+                      {item.name}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))
+        }
+      </div>
+      <p class="mt-16 text-sm text-base-600">
+        © {new Date().getFullYear()} Intern to Impact. All rights reserved.
+      </p>
+    </Wrapper>
+  </div>
+</footer>

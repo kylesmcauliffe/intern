@@ -1,40 +1,32 @@
 ---
-// Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-// Components
 import WorkCard1 from "@/components/work/WorkCard1.astro";
-// Content
 import { getCollection } from "astro:content";
 const allwork = await getCollection("work");
 ---
 
-<section class="bg-accent-50 overflow-hidden relative">
+<section class="bg-base-50 overflow-hidden relative">
   <Wrapper variant="standard" class="pt-24 overflow-hidden">
     <div class="grid items-end gap-4 lg:grid-cols-3">
       <div class="lg:col-span-2">
-        <div class="relative max-w-xs">
-          <div class="absolute inset-0 flex items-center" aria-hidden="true">
-            <div class="w-full border-t border-accent-300"></div>
-          </div>
-          <div class="relative flex justify-start">
-            <span class="bg-accent-50 pr-2 text-sm text-accent-500 font-medium"
-              >Work</span
-            >
-          </div>
-        </div>
+        <span
+          class="inline-flex rounded-full bg-base-200 px-3 py-1 text-[11px] font-medium uppercase tracking-widest text-base-600"
+        >
+          Work
+        </span>
         <Text
           tag="h2"
           variant="displayMD"
-          class="tracking-tighter text-accent-800 text-balance mt-12"
+          class="tracking-tight text-base-900 text-balance mt-6"
         >
-          Our moset recent projects
+          Recent projects, <em class="italic font-normal">case-ready</em>
         </Text>
       </div>
       <div class="flex lg:ml-auto">
-        <Button isLink size="lg" variant="accent" href="/work" class="w-auto">
-          See all our work
+        <Button isLink size="lg" variant="default" href="/work" class="w-auto">
+          See all work
         </Button>
       </div>
     </div>
@@ -42,7 +34,7 @@ const allwork = await getCollection("work");
       <button
         aria-label="Previous slide"
         id="keen-slider-previous"
-        class="rounded-xl bg-accent-50 p-1.5 text-accent-600 shadow-xs hover:bg-accent-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-accent-400 cursor-pointer focus:outline-2 focus:outline-inset"
+        class="rounded-full bg-white border border-base-200 p-2 text-base-700 hover:bg-base-100 cursor-pointer"
         ><svg
           width="15"
           height="15"
@@ -59,7 +51,7 @@ const allwork = await getCollection("work");
       <button
         aria-label="Next slide"
         id="keen-slider-next"
-        class="rounded-xl bg-accent-50 p-1.5 text-accent-600 shadow-xs hover:bg-accent-100 focus-visible:outline-2 focus-visible:outline-offset-2 focus:outline-accent-400 cursor-pointer focus:outline-2 focus:outline-inset"
+        class="rounded-full bg-white border border-base-200 p-2 text-base-700 hover:bg-base-100 cursor-pointer"
       >
         <svg
           width="15"

@@ -18,6 +18,6 @@ export default defineConfig({
     skipInline: false,
     drafts: true,
   },
-  site: "https://intern-to-impact.netlify.app",
+  site: "https://yourdomain.com",
   integrations: [sitemap(), mdx()],
 });

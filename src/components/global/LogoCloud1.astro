@@ -1,8 +1,5 @@
 ---
-// Fundations
-import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-// Asssets
 import { Image } from "astro:assets";
 import One from "@/images/brands/1.svg";
 import Two from "@/images/brands/2.svg";
@@ -10,42 +7,36 @@ import Three from "@/images/brands/3.svg";
 import Four from "@/images/brands/4.svg";
 
 const logos = [
-  { src: One, alt: "#_" },
-  { src: Two, alt: "#_" },
-  { src: Three, alt: "#_" },
-  {
-    src: Four,
-    alt: "#_",
-    classes: "hidden sm:block",
-  },
+  { src: One, alt: "Partner 1" },
+  { src: Two, alt: "Partner 2" },
+  { src: Three, alt: "Partner 3" },
+  { src: Four, alt: "Partner 4" },
 ];
 ---
 
-<section class="bg-white overflow-hidden relative">
-  <Wrapper variant="standard" class="py-12">
-    <div
-      class="grid grid-cols-1 gap-12 items-center lg:grid-cols-4 md:grid-cols-2"
+<section class="bg-base-50 overflow-hidden relative">
+  <Wrapper variant="standard" class="py-16">
+    <p
+      class="text-center text-[11px] font-medium uppercase tracking-[0.2em] text-base-500"
     >
-      <div class="col-span-full lg:col-span-1 lg:max-w-none lg:mr-auto mx-auto">
-        <Text tag="h3" variant="textSM" class="text-accent-500 text-balance">
-          Some of the mazing companies we have worked with
-        </Text>
-      </div>
-      <div class="md:col-span-3">
-        <div class="flex flex-wrap justify-between">
-          {
-            logos.map((logo) => (
-              <Image
-                width={80}
-                height={80}
-                alt={logo.alt}
-                class={`h-8 ${logo.classes || ""}`}
-                src={logo.src}
-              />
-            ))
-          }
-        </div>
-      </div>
+      Join studios and teams already shipping with intern to impact
+    </p>
+    <div
+      class="mt-8 grid grid-cols-2 border-t border-base-200 sm:grid-cols-4"
+    >
+      {
+        logos.map((logo) => (
+          <div class="flex items-center justify-center border-b border-r border-base-200 p-8 last:border-r-0 sm:[&:nth-child(4n)]:border-r-0">
+            <Image
+              width={80}
+              height={80}
+              alt={logo.alt}
+              class="h-8 w-auto grayscale opacity-60"
+              src={logo.src}
+            />
+          </div>
+        ))
+      }
     </div>
   </Wrapper>
 </section>
