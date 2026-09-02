@@ -15,113 +15,127 @@ const navLinks = [
   { label: "Work", href: "/work" },
   { label: "Blog", href: "/blog" },
   { label: "Apply", href: "/apply" },
+  { label: "About", href: "/about" },
 ];
 ---
 
-<div class="sticky top-0 z-50">
-  <div
-    class="flex items-center justify-center gap-3 bg-gradient-to-r from-accent-400 via-accent-300 to-pink-200 px-4 py-2 text-xs font-medium text-white sm:text-sm"
-  >
-    <span>The Latest → 5 opportunities worth applying to this month</span>
-    <a
-      href="/apply"
-      class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs hover:bg-white/30"
+<div data-mobile-nav-root>
+  <div class="sticky top-0 z-50">
+    <div
+      class="flex flex-wrap items-center justify-center gap-2 bg-gradient-to-r from-accent-400 via-accent-300 to-pink-200 px-4 py-2 text-xs font-medium text-white sm:gap-3 sm:text-sm"
     >
-      View the board →
-    </a>
-  </div>
-  <nav class="bg-base-50/90 backdrop-blur-md border-b border-base-200">
-    <Wrapper variant="standard" class="py-3">
-      <div class="relative flex items-center gap-4">
-        <a href="/" class="text-base z-10">
-          <BrandLogo />
-        </a>
-        <div
-          class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-6 text-sm font-medium text-base-700"
-        >
-          {
-            navLinks.map((link) => (
-              <a
-                href={link.href}
-                class="hover:text-base-900 transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            ))
-          }
-        </div>
-        <div class="ml-auto flex items-center gap-2">
-          <div class="hidden sm:block">
-            <Search />
+      <span class="sm:hidden">5 opportunities this month →</span>
+      <span class="hidden sm:inline"
+        >The Latest → 5 opportunities worth applying to this month</span
+      >
+      <a
+        href="/apply"
+        class="inline-flex items-center rounded-full bg-white px-3 py-1 text-xs font-semibold text-accent-700 hover:bg-white/90"
+      >
+        View the board →
+      </a>
+    </div>
+    <nav class="bg-base-50/90 backdrop-blur-md border-b border-base-200">
+      <Wrapper variant="standard" class="py-3">
+        <div class="relative flex items-center gap-3">
+          <a href="/" class="z-10 min-w-0 shrink">
+            <BrandLogo className="text-sm sm:text-base" />
+          </a>
+          <div
+            class="hidden lg:flex absolute left-1/2 -translate-x-1/2 items-center gap-6 text-sm font-medium text-base-700"
+          >
+            {
+              navLinks.map((link) => (
+                <a
+                  href={link.href}
+                  class="hover:text-base-900 transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              ))
+            }
           </div>
-          <div class="relative lg:hidden" data-mobile-nav-root>
-            <Button
-              iconOnly
-              size="sm"
-              variant="muted"
-              type="button"
-              aria-expanded="false"
-              aria-controls="mobile-nav-drawer"
-              data-mobile-nav-toggle
-            >
-              <Menu slot="icon" size="sm" />
-            </Button>
-
-            <div
-              data-mobile-nav-panel
-              aria-hidden="true"
-              class="fixed inset-0 z-40 pointer-events-none duration-300"
-            >
-              <div
-                id="mobile-nav-drawer"
-                data-mobile-nav-drawer
-                class="ml-auto flex h-full w-[min(22rem,90vw)] flex-col gap-8 translate-x-full bg-base-50 px-6 py-8 shadow-2xl transition-transform duration-300"
+          <div class="ml-auto flex items-center gap-2 shrink-0">
+            <div class="hidden sm:block">
+              <Search />
+            </div>
+            <div class="lg:hidden">
+              <Button
+                iconOnly
+                size="sm"
+                variant="muted"
+                type="button"
+                aria-expanded="false"
+                aria-controls="mobile-nav-drawer"
+                data-mobile-nav-toggle
               >
-                <div class="flex items-center justify-between">
-                  <a href="/">
-                    <span class="sr-only">Home</span>
-                    <BrandLogo />
-                  </a>
-
-                  <Button
-                    iconOnly
-                    size="xs"
-                    variant="muted"
-                    type="button"
-                    data-mobile-nav-close
-                  >
-                    <Close slot="icon" size="xs" />
-                  </Button>
-                </div>
-
-                <div class="flex flex-col gap-2">
-                  {
-                    navLinks.map((link) => (
-                      <a
-                        data-mobile-nav-link
-                        href={link.href}
-                        class="text-base font-medium text-base-800 transition-colors duration-200 hover:text-accent-600"
-                      >
-                        {link.label}
-                      </a>
-                    ))
-                  }
-                </div>
-              </div>
+                <Menu slot="icon" size="sm" />
+              </Button>
             </div>
           </div>
         </div>
+      </Wrapper>
+    </nav>
+  </div>
+
+  <!-- Drawer lives outside sticky/backdrop-blur so fixed + h-full use the viewport -->
+  <div
+    data-mobile-nav-panel
+    aria-hidden="true"
+    class="fixed inset-0 z-[60] opacity-0 pointer-events-none transition-opacity duration-300 lg:hidden"
+  >
+    <div
+      data-mobile-nav-backdrop
+      class="absolute inset-0 bg-base-900/40"
+      aria-hidden="true"
+    >
+    </div>
+    <div
+      id="mobile-nav-drawer"
+      data-mobile-nav-drawer
+      class="absolute inset-y-0 right-0 flex h-full w-[min(22rem,90vw)] flex-col gap-8 translate-x-full bg-base-50 px-6 py-8 shadow-2xl transition-transform duration-300"
+    >
+      <div class="flex items-center justify-between gap-3">
+        <a href="/" class="min-w-0">
+          <span class="sr-only">Home</span>
+          <BrandLogo className="text-sm" />
+        </a>
+
+        <Button
+          iconOnly
+          size="xs"
+          variant="muted"
+          type="button"
+          data-mobile-nav-close
+          aria-label="Close menu"
+        >
+          <Close slot="icon" size="xs" />
+        </Button>
       </div>
-    </Wrapper>
-  </nav>
+
+      <div class="flex flex-col gap-1">
+        {
+          navLinks.map((link) => (
+            <a
+              data-mobile-nav-link
+              href={link.href}
+              class="rounded-lg px-3 py-3 text-base font-medium text-base-800 transition-colors duration-200 hover:bg-base-100 hover:text-accent-600"
+            >
+              {link.label}
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </div>
 </div>
+
 <script is:inline>
-  const navRoot =
-    document.currentScript?.closest("[data-mobile-nav-root]") ||
-    document.querySelector("[data-mobile-nav-root]");
+  const navRoot = document.querySelector("[data-mobile-nav-root]");
   const toggle = navRoot?.querySelector("[data-mobile-nav-toggle]");
   const panel = navRoot?.querySelector("[data-mobile-nav-panel]");
   const drawer = navRoot?.querySelector("[data-mobile-nav-drawer]");
+  const backdrop = navRoot?.querySelector("[data-mobile-nav-backdrop]");
   const closeButtons = navRoot?.querySelectorAll("[data-mobile-nav-close]");
   const links = navRoot?.querySelectorAll("[data-mobile-nav-link]");
   if (navRoot && toggle && panel && drawer) {
@@ -144,9 +158,7 @@ const navLinks = [
     links?.forEach((link) =>
       link.addEventListener("click", () => setOpen(false))
     );
-    panel.addEventListener("click", (event) => {
-      if (event.target === panel) setOpen(false);
-    });
+    backdrop?.addEventListener("click", () => setOpen(false));
     document.addEventListener("keydown", (event) => {
       if (event.key === "Escape" && isOpen) setOpen(false);
     });

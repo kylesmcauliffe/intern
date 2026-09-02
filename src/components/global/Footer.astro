@@ -18,12 +18,9 @@ const navLinks = [
   <div
     class="relative overflow-hidden rounded-[2rem] bg-gradient-to-r from-pink-200 via-yellow-100 to-accent-100 px-8 py-16 lg:px-16"
   >
-    <BrandLogo
-      class="pointer-events-none absolute -right-8 bottom-0 text-base-900/10 text-6xl lg:text-8xl"
-    />
     <Wrapper variant="standard" class="relative">
       <div
-        class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between"
+        class="flex flex-col gap-10 sm:flex-row sm:items-start sm:justify-between"
       >
         <div>
           <BrandLogo />
@@ -31,8 +28,8 @@ const navLinks = [
             For those figuring out corporate life as they go.
           </Text>
         </div>
-        <nav>
-          <ul class="flex flex-wrap gap-x-6 gap-y-2">
+        <nav aria-label="Footer">
+          <ul class="flex flex-col gap-3 sm:flex-row sm:flex-wrap sm:gap-x-6 sm:gap-y-2">
             {
               navLinks.map((item) => (
                 <li>
