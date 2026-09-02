@@ -52,22 +52,28 @@ const { frontmatter } = Astro.props;
               {frontmatter.work}
             </dd>
           </div>
-          <div>
-            {
-              frontmatter.credits.map((credit) => (
-                <div class="flex items-center justify-between w-full">
-                  <dt class="text-accent-900 font-semibold">{credit.name}</dt>
-                  <dd class="text-accent-600 font-normal">{credit.role}</dd>
-                </div>
-              ))
-            }
-          </div>
-          <div class="flex items-center justify-between w-full">
-            <dt class="text-accent-900 font-semibold">Website</dt>
-            <dd class="text-accent-600 font-normal">
-              <a href={frontmatter.link}>Visit</a>
-            </dd>
-          </div>
+          {
+            frontmatter.credits?.length ? (
+              <div>
+                {frontmatter.credits.map((credit) => (
+                  <div class="flex items-center justify-between w-full">
+                    <dt class="text-accent-900 font-semibold">{credit.name}</dt>
+                    <dd class="text-accent-600 font-normal">{credit.role}</dd>
+                  </div>
+                ))}
+              </div>
+            ) : null
+          }
+          {
+            frontmatter.link ? (
+              <div class="flex items-center justify-between w-full">
+                <dt class="text-accent-900 font-semibold">Link</dt>
+                <dd class="text-accent-600 font-normal">
+                  <a href={frontmatter.link}>View</a>
+                </dd>
+              </div>
+            ) : null
+          }
         </dl>
       </div>
       <Image

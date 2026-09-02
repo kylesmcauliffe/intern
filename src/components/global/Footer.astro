@@ -4,31 +4,13 @@ import BrandLogo from "@/components/assets/BrandLogo.astro";
 // Fundations
 import Text from "@/components/fundations/elements/Text.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
-const columns = [
-  {
-    title: "Program",
-    links: [
-      { name: "How it works", href: "/services" },
-      { name: "Work", href: "/work" },
-      { name: "Pricing", href: "/pricing-simple" },
-    ],
-  },
-  {
-    title: "Studio",
-    links: [
-      { name: "Team", href: "/team" },
-      { name: "Blog", href: "/blog" },
-      { name: "About", href: "/legal/about" },
-    ],
-  },
-  {
-    title: "Contact",
-    links: [
-      { name: "Apply", href: "/contact" },
-      { name: "Contact", href: "/contact" },
-      { name: "Privacy", href: "/legal/privacy" },
-    ],
-  },
+
+const navLinks = [
+  { name: "Home", href: "/" },
+  { name: "Work", href: "/work" },
+  { name: "Blog", href: "/blog" },
+  { name: "Apply", href: "/apply" },
+  { name: "About", href: "/about" },
 ];
 ---
 
@@ -40,37 +22,33 @@ const columns = [
       class="pointer-events-none absolute -right-8 bottom-0 text-base-900/10 text-6xl lg:text-8xl"
     />
     <Wrapper variant="standard" class="relative">
-      <div class="grid gap-12 lg:grid-cols-4">
+      <div
+        class="flex flex-col gap-8 lg:flex-row lg:items-center lg:justify-between"
+      >
         <div>
           <BrandLogo />
-          <Text tag="p" variant="textSM" class="mt-4 max-w-xs text-base-700">
-            Demure, deliberate career strategy for women who want to show up
-            polished — without performing.
+          <Text tag="p" variant="textSM" class="mt-4 max-w-sm text-base-700">
+            For those figuring out corporate life as they go.
           </Text>
         </div>
-        {
-          columns.map((column) => (
-            <div>
-              <p class="text-xs font-semibold uppercase tracking-widest text-base-600">
-                {column.title}
-              </p>
-              <ul class="mt-4 flex flex-col gap-2">
-                {column.links.map((item) => (
-                  <li>
-                    <a
-                      class="text-base-800 hover:text-base-950 duration-200"
-                      href={item.href}
-                    >
-                      {item.name}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-          ))
-        }
+        <nav>
+          <ul class="flex flex-wrap gap-x-6 gap-y-2">
+            {
+              navLinks.map((item) => (
+                <li>
+                  <a
+                    class="text-sm font-medium text-base-800 hover:text-base-950 duration-200"
+                    href={item.href}
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </nav>
       </div>
-      <p class="mt-16 text-sm text-base-600">
+      <p class="mt-12 text-sm text-base-600">
         © {new Date().getFullYear()} Intern to Impact. All rights reserved.
       </p>
     </Wrapper>

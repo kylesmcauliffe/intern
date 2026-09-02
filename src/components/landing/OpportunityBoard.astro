@@ -1,0 +1,78 @@
+---
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import { featuredOpportunities } from "@/data/opportunities";
+
+const rowOne = featuredOpportunities.slice(0, 4);
+const rowTwo = featuredOpportunities.slice(4);
+---
+
+<section class="bg-white overflow-hidden">
+  <Wrapper variant="standard" class="bg-white py-24 lg:py-32">
+    <div class="flex flex-col items-center justify-center">
+      <div class="relative skew-y-12">
+        <div
+          class="bg-accent-200 text-accent-600 relative rounded-2xl z-10 py-8 px-4 bottom-0 w-full overflow-x-hidden"
+        >
+          <div
+            class="items-center relative animate-slowMarquee flex gap-8 whitespace-nowrap"
+          >
+            {
+              Array.from({ length: 3 }).map(() =>
+                rowOne.map((job) => (
+                  <a
+                    href={job.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block py-4 px-2 hover:opacity-80 transition-opacity"
+                  >
+                    <p class="text-accent-900 font-semibold uppercase text-sm">
+                      {job.datePosted}
+                    </p>
+                    <p class="text-accent-900 text-3xl mt-2 font-display">
+                      {job.title}
+                    </p>
+                    <p class="text-accent-800 text-base mt-1 max-w-md">
+                      {job.company} — {job.description}
+                    </p>
+                  </a>
+                ))
+              )
+            }
+          </div>
+        </div>
+      </div>
+      <div class="relative -skew-y-12">
+        <div
+          class="bg-accent-200 text-accent-600 relative rounded-2xl mt-24 z-10 py-8 px-4 bottom-0 w-full overflow-x-hidden"
+        >
+          <div
+            class="items-center relative animate-rightMarquee flex gap-8 whitespace-nowrap"
+          >
+            {
+              Array.from({ length: 3 }).map(() =>
+                rowTwo.map((job) => (
+                  <a
+                    href={job.link}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-block py-4 px-2 hover:opacity-80 transition-opacity"
+                  >
+                    <p class="text-accent-900 font-semibold uppercase text-sm">
+                      {job.datePosted}
+                    </p>
+                    <p class="text-accent-900 text-3xl mt-2 font-display">
+                      {job.title}
+                    </p>
+                    <p class="text-accent-800 text-base mt-1 max-w-md">
+                      {job.company} — {job.description}
+                    </p>
+                  </a>
+                ))
+              )
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+  </Wrapper>
+</section>

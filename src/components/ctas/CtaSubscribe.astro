@@ -15,40 +15,28 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           </div>
           <div class="relative flex justify-start">
             <span class="bg-accent-500 pr-2 text-sm text-white font-medium"
-              >Subscribe</span
+              >The Newsletter</span
             >
           </div>
         </div>
         <Text
-          tag="h1"
+          tag="h2"
           variant="displayLG"
-          class="tracking-tight text-white mt-12 text-balance"
+          class="tracking-tight text-base-900 mt-12 text-balance"
         >
-          Subscribe to our newsletter to stay up to date with our latest work,
-          projects, and more
+          Career lessons, opportunities, and things I wish someone had told me
+          sooner
         </Text>
-        <Text tag="p" variant="textXL" class="text-accent-100 mt-8 text-pretty">
-          Every thursday at 14.00 we will send you a newsletter with the latest
-          and greatest articles from our blog, as well as our latest work,
-          projects, and more
+        <Text tag="p" variant="textXL" class="text-base-600 mt-8 text-pretty">
+          Straight to your inbox — practical advice from The Return Offer and
+          Intern → Impact.
         </Text>
       </div>
-      <form class="mt-12 w-full">
-        <div class="flex flex-col gap-2">
-          <label for="email-address" class="sr-only">Email address</label>
-          <input
-            id="email-address"
-            name="email"
-            type="email"
-            autocomplete="email"
-            required
-            class="min-w-0 flex-auto rounded-full border-0 h-12 duration-300 px-3.5 py-2 text-base-900 ring-1 ring-inset ring-base-200 placeholder:text-base-400 focus:ring-2 focus:ring-inset focus:ring-accent-500"
-            placeholder="Enter your email"
-          />
-
-          <Button type="submit" size="lg" variant="muted"> Subscribe </Button>
-        </div>
-      </form>
+      <div class="mt-4">
+        <Button isLink size="lg" variant="accent" href="/apply">
+          Join the newsletter
+        </Button>
+      </div>
     </div>
   </Wrapper>
 </section>

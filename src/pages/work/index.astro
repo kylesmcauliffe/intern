@@ -8,7 +8,10 @@ import CtaHire from "@/components/ctas/CtaHire.astro";
 import WorkCard1 from "@/components/work/WorkCard1.astro";
 // Content
 import { getCollection } from "astro:content";
+
 const allwork = await getCollection("work");
+const templates = allwork.filter((post) => post.id.startsWith("template-"));
+const community = allwork.filter((post) => post.id.startsWith("community-"));
 ---
 
 <BaseLayout>
@@ -21,15 +24,37 @@ const allwork = await getCollection("work");
             variant="displayLG"
             class="tracking-tighter text-accent-800 text-balance"
           >
-            Our latest projects
+            The Work
           </Text>
         </div>
         <p class="text-base font-medium text-accent-500 text-balance">
-          We partner with founders to visualise their purpose.
+          Real projects. Real learning. Real impact.
+        </p>
+      </div>
+
+      <div class="mt-16 max-w-3xl">
+        <Text tag="h2" variant="displaySM" class="text-base-900">
+          Templates & tools
+        </Text>
+        <p class="mt-2 text-base-600">
+          The documents and guides behind the journey — resume templates, outreach
+          scripts, and project walkthroughs.
         </p>
       </div>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-12">
-        {allwork.map((post) => <WorkCard1 post={post} />)}
+        {templates.map((post) => <WorkCard1 post={post} />)}
+      </div>
+
+      <div class="mt-24 max-w-3xl">
+        <Text tag="h2" variant="displaySM" class="text-base-900">
+          Community Portfolio
+        </Text>
+        <p class="mt-2 text-base-600">
+          A public library of what early-career work actually looks like.
+        </p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mt-12">
+        {community.map((post) => <WorkCard1 post={post} />)}
       </div>
     </Wrapper>
   </section>

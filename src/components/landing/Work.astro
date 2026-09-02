@@ -4,7 +4,9 @@ import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 import WorkCard1 from "@/components/work/WorkCard1.astro";
 import { getCollection } from "astro:content";
+
 const allwork = await getCollection("work");
+const templates = allwork.filter((post) => post.id.startsWith("template-"));
 ---
 
 <section class="bg-base-50 overflow-hidden relative">
@@ -21,12 +23,12 @@ const allwork = await getCollection("work");
           variant="displayMD"
           class="tracking-tight text-base-900 text-balance mt-6"
         >
-          Recent projects, <em class="italic font-normal">case-ready</em>
+          The templates, tools & work behind the journey.
         </Text>
       </div>
       <div class="flex lg:ml-auto">
         <Button isLink size="lg" variant="default" href="/work" class="w-auto">
-          See all work
+          The Archive
         </Button>
       </div>
     </div>
@@ -72,7 +74,7 @@ const allwork = await getCollection("work");
     class="w-full mx-auto max-w-screen 2xl:max-w-400 pb-32 mt-8 overflow-hidden"
   >
     <div id="keen-slider" class="keen-slider">
-      {allwork.slice(0, 3).map((post) => <WorkCard1 post={post} />)}
+      {templates.map((post) => <WorkCard1 post={post} />)}
     </div>
   </div>
 </section>

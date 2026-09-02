@@ -1,0 +1,28 @@
+---
+import Text from "@/components/fundations/elements/Text.astro";
+import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+---
+
+<section class="bg-base-50 overflow-hidden relative">
+  <Wrapper variant="standard" class="py-16 lg:py-20">
+    <div
+      class="rounded-[2rem] bg-base-200 bg-grain p-8 sm:p-12 lg:p-16 max-w-4xl mx-auto"
+    >
+      <Text tag="h2" variant="displayMD" class="tracking-tight text-base-900">
+        Our Mission
+      </Text>
+      <div class="mt-6 space-y-4 text-base-600 text-pretty">
+        <Text tag="p" variant="textBase">
+          Intern to Impact is a space for young women navigating the messy middle
+          between college, internships, and the beginning of their careers.
+          Through practical resources, real career stories, and a look inside the
+          work that builds experience, we're making the path into corporate life a
+          little less mysterious.
+        </Text>
+        <Text tag="p" variant="textBase" class="font-medium text-base-800">
+          Because getting the opportunity is only the beginning.
+        </Text>
+      </div>
+    </div>
+  </Wrapper>
+</section>

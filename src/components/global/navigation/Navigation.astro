@@ -2,19 +2,19 @@
 // Assets
 import BrandLogo from "@/components/assets/BrandLogo.astro";
 // Fundations
-import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
 // Components
 import Search from "@/components/global/Search.astro";
 // Icons
 import Menu from "@/components/fundations/icons/Menu.astro";
 import Close from "@/components/fundations/icons/Close.astro";
+import Button from "@/components/fundations/elements/Button.astro";
+
 const navLinks = [
-  { label: "How it works", href: "/services" },
+  { label: "Home", href: "/" },
   { label: "Work", href: "/work" },
-  { label: "Team", href: "/team" },
-  { label: "Pricing", href: "/pricing-simple" },
   { label: "Blog", href: "/blog" },
+  { label: "Apply", href: "/apply" },
 ];
 ---
 
@@ -22,12 +22,12 @@ const navLinks = [
   <div
     class="flex items-center justify-center gap-3 bg-gradient-to-r from-accent-400 via-accent-300 to-pink-200 px-4 py-2 text-xs font-medium text-white sm:text-sm"
   >
-    <span>Intern onboarding is open — apply for the next cohort.</span>
+    <span>The Latest → 5 opportunities worth applying to this month</span>
     <a
-      href="/contact"
+      href="/apply"
       class="inline-flex items-center rounded-full bg-white/20 px-3 py-1 text-xs hover:bg-white/30"
     >
-      See how it works
+      View the board →
     </a>
   </div>
   <nav class="bg-base-50/90 backdrop-blur-md border-b border-base-200">
@@ -53,14 +53,6 @@ const navLinks = [
         <div class="ml-auto flex items-center gap-2">
           <div class="hidden sm:block">
             <Search />
-          </div>
-          <div class="hidden md:flex items-center gap-2">
-            <Button isLink size="sm" variant="default" href="/contact">
-              Apply
-            </Button>
-            <Button isLink size="sm" variant="muted" href="/contact">
-              Contact
-            </Button>
           </div>
           <div class="relative lg:hidden" data-mobile-nav-root>
             <Button
@@ -114,15 +106,6 @@ const navLinks = [
                       </a>
                     ))
                   }
-                </div>
-
-                <div class="mt-auto flex flex-col gap-3">
-                  <Button isLink size="base" variant="default" href="/contact">
-                    Apply
-                  </Button>
-                  <Button isLink size="base" variant="muted" href="/contact">
-                    Contact
-                  </Button>
                 </div>
               </div>
             </div>

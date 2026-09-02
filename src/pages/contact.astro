@@ -21,7 +21,11 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
             variant="displayMD"
             class="tracking-tighter text-white mt-12"
           >
-            Ready to work on the next big thing
+            Let's grab a virtual coffee
+          </Text>
+          <Text tag="p" variant="textBase" class="text-accent-100 mt-4">
+            Have a question, an idea, or a story worth sharing? I'd love to hear
+            from you.
           </Text>
         </div>
         <form
@@ -79,45 +83,11 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
               </div>
             </div>
             <div class="sm:col-span-2">
-              <label
-                for="company"
-                class="block text-sm font-semibold leading-6 text-accent-500"
-                >Company</label
-              >
-              <div class="mt-2.5">
-                <input
-                  type="text"
-                  name="company"
-                  id="company"
-                  autocomplete="organization"
-                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div class="sm:col-span-2">
-              <div class="flex justify-between text-sm leading-6">
-                <label for="phone" class="block font-semibold text-accent-500"
-                  >Phone</label
-                >
-                <p id="phone-description" class="text-accent-400">Optional</p>
-              </div>
-              <div class="mt-2.5">
-                <input
-                  type="tel"
-                  name="phone"
-                  id="phone"
-                  autocomplete="tel"
-                  aria-describedby="phone-description"
-                  class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
-                />
-              </div>
-            </div>
-            <div class="sm:col-span-2">
               <div class="flex justify-between text-sm leading-6">
                 <label
                   for="message"
                   class="block text-sm font-semibold leading-6 text-accent-500"
-                  >How can we help you?</label
+                  >What's on your mind?</label
                 >
                 <p id="message-description" class="text-accent-400">
                   Max 500 characters
@@ -129,6 +99,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
                   name="message"
                   rows="4"
                   aria-describedby="message-description"
+                  placeholder="A question, idea, or story you'd like to share…"
                   class="block w-full rounded-md border-0 px-3.5 py-2 text-accent-500 ring-1 ring-inset ring-accent-100 placeholder:text-accent-400 focus:ring-2 focus:ring-inset focus:ring-accent-300 sm:text-sm sm:leading-6"
                 ></textarea>
               </div>
@@ -136,7 +107,7 @@ import Wrapper from "@/components/fundations/containers/Wrapper.astro";
           </div>
           <div class="mt-10 flex w-full">
             <Button type="submit" size="base" variant="accent" class="w-full">
-              Submit
+              Send message
             </Button>
           </div>
         </form>
