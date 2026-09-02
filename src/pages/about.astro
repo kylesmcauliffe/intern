@@ -1,37 +1,140 @@
 ---
+import { Image } from "astro:assets";
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Text from "@/components/fundations/elements/Text.astro";
+import Button from "@/components/fundations/elements/Button.astro";
 import Wrapper from "@/components/fundations/containers/Wrapper.astro";
+import headshot from "@/images/ariana/headshot.jpg";
 ---
 
 <BaseLayout>
   <section class="bg-white overflow-hidden">
-    <Wrapper variant="standard" class="py-16 lg:py-24 max-w-3xl">
-      <Text tag="h1" variant="displayLG" class="tracking-tight text-base-900">
-        About Ariana
-      </Text>
-      <div class="prose prose-base mt-8 text-base-600 max-w-none">
-        <p>
-          I'm Bay Area born and raised — first-gen college graduate from San
-          Francisco State. I didn't have parents who walked me through corporate
-          recruiting. I figured it out through hundreds of applications, campus
-          leadership, and a lot of trial and error.
-        </p>
-        <p>
-          I applied to over 100 internships from November through May. I tracked
-          everything in a spreadsheet, networked on LinkedIn, and eventually
-          landed at Uber. Today I'm in sales at a tech company — a path I
-          didn't predict, but one that fits.
-        </p>
-        <p>
-          <strong>Intern to Impact</strong> is the resource I wish existed for my
-          younger cousin, my Psi Chi team, and anyone at a state school who wants
-          corporate or tech but doesn't know where to start.
-        </p>
-        <p>
-          The advice here isn't universal law — it's what worked for me. Take
-          what helps, skip what doesn't, and build your own reps.
-        </p>
+    <Wrapper variant="standard" class="py-16 lg:py-24">
+      <div class="grid gap-12 lg:grid-cols-[auto_1fr] lg:items-start max-w-4xl">
+        <Image
+          src={headshot}
+          alt="Ariana Cirkelis"
+          width={400}
+          height={400}
+          class="size-48 sm:size-56 rounded-full object-cover object-top shadow-sm ring-4 ring-base-100"
+        />
+        <div>
+          <Text tag="h1" variant="displayLG" class="tracking-tight text-base-900">
+            Ariana Cirkelis
+          </Text>
+          <p class="mt-2 text-base font-medium text-accent-600">
+            Healthcare Partnerships @ Uber · San Francisco, CA
+          </p>
+          <div class="prose prose-base mt-8 text-base-600 max-w-none">
+            <p>
+              I'm passionate about breaking down barriers to care and improving
+              health outcomes through innovative transportation solutions. At Uber
+              Health, I help healthcare organizations connect patients to care with
+              HIPAA-secure transportation, prescription delivery, DME, and meal
+              delivery.
+            </p>
+            <p>
+              With a B.A. in Psychology &amp; Communication Studies and a Certificate
+              in Conflict Resolution from San Francisco State, I bring a foundation
+              in sales, team coordination, and partnership-building. I'm committed to
+              leadership, mentorship, and mission-driven work that creates lasting
+              impact.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-16 max-w-3xl grid gap-12 sm:grid-cols-2">
+        <div>
+          <Text tag="h2" variant="displaySM" class="text-base-900">
+            Experience
+          </Text>
+          <ul class="mt-6 space-y-4 text-sm text-base-700">
+            <li>
+              <p class="font-semibold text-base-900">
+                Business Development Representative, Uber Health
+              </p>
+              <p class="text-base-500">2025 – Present · San Francisco</p>
+            </li>
+            <li>
+              <p class="font-semibold text-base-900">
+                Sales Development Representative, Uber Health
+              </p>
+              <p class="text-base-500">2025 – 2026 · San Francisco</p>
+            </li>
+            <li>
+              <p class="font-semibold text-base-900">
+                Account Representative Intern, Uber Eats
+              </p>
+              <p class="text-base-500">Summer 2024 · Bay Area SMB Sales</p>
+            </li>
+            <li>
+              <p class="font-semibold text-base-900">
+                Account Coordinator, George Advisors
+              </p>
+              <p class="text-base-500">
+                2021 – 2024 · Supporting medical residents &amp; fellows at Stanford,
+                UCLA &amp; UCSF
+              </p>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <Text tag="h2" variant="displaySM" class="text-base-900">
+            Education
+          </Text>
+          <ul class="mt-6 space-y-4 text-sm text-base-700">
+            <li>
+              <p class="font-semibold text-base-900">San Francisco State University</p>
+              <p class="text-base-500">
+                B.A. Psychology &amp; Communication Studies · Certificate in Conflict
+                Resolution
+              </p>
+            </li>
+            <li>
+              <p class="font-semibold text-base-900">Skyline College</p>
+              <p class="text-base-500">AA-T English · Middle College Program</p>
+            </li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="mt-16 max-w-3xl rounded-[2rem] bg-base-100 border border-base-200 p-8 sm:p-12">
+        <Text tag="h2" variant="displaySM" class="text-base-900">
+          Why Intern to Impact
+        </Text>
+        <div class="mt-6 space-y-4 text-base-600 text-pretty">
+          <p>
+            I'm Bay Area born and raised — a first-gen college graduate. I didn't
+            have parents who walked me through corporate recruiting. I figured it
+            out through hundreds of applications, campus leadership, and a lot of
+            trial and error.
+          </p>
+          <p>
+            I applied to over 100 internships from November through May. I tracked
+            everything in a spreadsheet, networked on LinkedIn, and eventually
+            landed at Uber — then turned that internship into a full-time career.
+          </p>
+          <p>
+            <strong class="text-base-900">Intern to Impact</strong> is the resource I
+            wish existed for my younger cousin, my Psi Chi team, and anyone at a
+            state school who wants corporate or tech but doesn't know where to start.
+            The advice here isn't universal law — it's what worked for me. Take what
+            helps, skip what doesn't, and build your own reps.
+          </p>
+        </div>
+        <div class="mt-8">
+          <Button
+            isLink
+            size="base"
+            variant="accent"
+            href="https://www.linkedin.com/in/ariana-cirkelis/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Let's connect on LinkedIn!
+          </Button>
+        </div>
       </div>
     </Wrapper>
   </section>

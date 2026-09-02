@@ -26,8 +26,7 @@ const { frontmatter } = Astro.props;
             </Text>
           </div>
           <Text tag="p" variant="textBase" class="font-medium text-accent-500">
-            We are a team of creatives and developers who work together to
-            create a unique and engaging experience for our clients.
+            {frontmatter.work}
           </Text>
         </div>
         <dl class="flex flex-col gap-2 mt-24">

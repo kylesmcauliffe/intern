@@ -8,11 +8,55 @@ import { getCollection } from "astro:content";
 
 const posts = await getCollection("posts");
 const work = await getCollection("work");
-const services = await getCollection("services");
-const team = await getCollection("team");
 const legal = await getCollection("legal");
 
+const staticPages = [
+  {
+    slug: "home",
+    url: "/",
+    title: "Home",
+    description: "Intern to Impact — for those figuring out corporate life as they go",
+    type: "Page",
+  },
+  {
+    slug: "about",
+    url: "/about",
+    title: "About Ariana",
+    description: "Healthcare Partnerships @ Uber · San Francisco",
+    type: "Page",
+  },
+  {
+    slug: "apply",
+    url: "/apply",
+    title: "The Opportunity Board",
+    description: "Curated LinkedIn opportunities worth knowing about",
+    type: "Page",
+  },
+  {
+    slug: "contact",
+    url: "/contact",
+    title: "Contact",
+    description: "Schedule a virtual coffee chat",
+    type: "Page",
+  },
+  {
+    slug: "work",
+    url: "/work",
+    title: "The Work",
+    description: "Real projects. Real learning. Real impact.",
+    type: "Page",
+  },
+  {
+    slug: "blog",
+    url: "/blog",
+    title: "Notes from the journey",
+    description: "Career lessons, honest reflections, and conversations",
+    type: "Page",
+  },
+];
+
 const searchItems = [
+  ...staticPages,
   ...posts.map((entry) => ({
     slug: entry.id,
     url: `/blog/posts/${entry.id}`,
@@ -30,20 +74,6 @@ const searchItems = [
     description: entry.data.client || entry.data.company || entry.data.work,
     pubDate: entry.data.year || entry.data.pubDate,
     type: "Work",
-  })),
-  ...services.map((entry) => ({
-    slug: entry.id,
-    url: `/services/${entry.id}`,
-    title: entry.data.service,
-    description: entry.data.description,
-    type: "Service",
-  })),
-  ...team.map((entry) => ({
-    slug: entry.id,
-    url: `/team/${entry.id}`,
-    title: entry.data.name,
-    description: entry.data.role || entry.data.intro,
-    type: "Team",
   })),
   ...legal.map((entry) => ({
     slug: entry.id,
